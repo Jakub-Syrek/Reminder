@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Reminder Extension",
-  "version": "1.0",
-  "description": "Manage reminders with desktop notifications",
+  "version": "2.0",
+  "description": "Manage reminders with desktop notifications. Built with design patterns and SOLID principles.",
   "permissions": [
     "storage",
     "notifications",
@@ -13,7 +13,7 @@
     "default_title": "Reminder Extension"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background.js"
   },
   "icons": {
     "16": "images/icon-16.png",
