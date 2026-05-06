@@ -1,10 +1,12 @@
-document.addEventListener('DOMContentLoaded', loadReminders);
+document.addEventListener('DOMContentLoaded', () => {
+  loadReminders();
 
-const addBtn = document.getElementById('addBtn');
-const reminderText = document.getElementById('reminderText');
-const reminderDate = document.getElementById('reminderDate');
+  const addBtn = document.getElementById('addBtn');
+  const reminderText = document.getElementById('reminderText');
+  const reminderDate = document.getElementById('reminderDate');
 
-addBtn.addEventListener('click', addReminder);
+  addBtn.addEventListener('click', addReminder);
+});
 
 function addReminder() {
   const text = reminderText.value.trim();

@@ -11,12 +11,8 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Reminder Extension",
-    "default_icon": "images/icon-128.png"
+    "default_title": "Reminder Extension"
   },
-  "host_permissions": [
-    "<all_urls>"
-  ],
   "background": {
     "service_worker": "background.js"
   },
