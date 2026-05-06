@@ -7,8 +7,7 @@
     "storage",
     "notifications",
     "alarms",
-    "tabs",
-    "action"
+    "tabs"
   ],
   "action": {
     "default_popup": "popup.html",
