@@ -1,6 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
   loadReminders();
   document.getElementById('addBtn').addEventListener('click', addReminder);
+
+  // Sprawdzaj czy jest wyzwolone przypomnienie
+  chrome.storage.local.get('triggeredReminder', (data) => {
+    if (data.triggeredReminder) {
+      const reminder = data.triggeredReminder;
+      const alertBox = document.getElementById('alertBox');
+      const alertText = document.getElementById('alertText');
+
+      alertText.textContent = reminder.text;
+      alertBox.style.display = 'block';
+
+      // Wyczyść po wyświetleniu
+      chrome.storage.local.remove('triggeredReminder');
+    }
+  });
 });
 
 function addReminder() {

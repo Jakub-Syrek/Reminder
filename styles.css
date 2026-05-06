@@ -18,6 +18,26 @@ body {
   background: white;
 }
 
+.alert-box {
+  background: #fff3cd;
+  border-left: 4px solid #ff6b00;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  color: #333;
+}
+
+.alert-box strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.alert-box p {
+  margin: 0;
+  font-size: 14px;
+}
+
 h1 {
   color: #333;
   margin-bottom: 20px;

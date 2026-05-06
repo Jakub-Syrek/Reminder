@@ -8,8 +8,11 @@ chrome.alarms.onAlarm.addListener((alarm) => {
     if (reminder) {
       showNotification(reminder);
 
-      // Fallback: otwórz popup extension'u
-      chrome.action.openPopup();
+      // Zapisz wyzwolone przypomnienie
+      chrome.storage.local.set({ triggeredReminder: reminder }, () => {
+        // Otwórz popup extension'u
+        chrome.action.openPopup();
+      });
 
       deleteReminder(parseInt(reminderId));
     }
