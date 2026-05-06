@@ -1,11 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOMContentLoaded fired');
   loadReminders();
 
   const addBtn = document.getElementById('addBtn');
   const reminderText = document.getElementById('reminderText');
   const reminderDate = document.getElementById('reminderDate');
 
-  addBtn.addEventListener('click', addReminder);
+  console.log('addBtn:', addBtn);
+  console.log('reminderText:', reminderText);
+  console.log('reminderDate:', reminderDate);
+
+  if (addBtn) {
+    addBtn.addEventListener('click', () => {
+      console.log('Button clicked!');
+      addReminder();
+    });
+    console.log('Click handler attached');
+  } else {
+    console.error('addBtn not found!');
+  }
 });
 
 function addReminder() {
