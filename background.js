@@ -18,9 +18,18 @@ function showNotification(reminder) {
     iconUrl: chrome.runtime.getURL('images/icon-128.png'),
     title: 'Reminder',
     message: reminder.text,
-    priority: 2
+    priority: 2,
+    requireInteraction: true
   }, (notificationId) => {
-    console.log('Notification created:', notificationId);
+    if (chrome.runtime.lastError) {
+      console.error('Notification error:', chrome.runtime.lastError.message);
+    } else {
+      console.log('Notification created:', notificationId);
+    }
+  });
+
+  chrome.notifications.getPermissionLevel((level) => {
+    console.log('Permission level:', level);
   });
 }
 
