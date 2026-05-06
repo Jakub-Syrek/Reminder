@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Reminder Extension",
+  "version": "1.0",
+  "description": "Manage reminders with desktop notifications",
+  "permissions": [
+    "storage",
+    "notifications",
+    "alarms",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Reminder Extension"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "/images/icon-16.png",
+    "48": "/images/icon-48.png",
+    "128": "/images/icon-128.png"
+  }
+}
