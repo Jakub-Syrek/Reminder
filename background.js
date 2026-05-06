@@ -25,6 +25,9 @@ function showNotification(reminder) {
       console.error('Notification error:', chrome.runtime.lastError.message);
     } else {
       console.log('Notification created:', notificationId);
+      // Fallback: pokaż badge na ikonie
+      chrome.action.setBadgeText({ text: '!' });
+      chrome.action.setBadgeBackgroundColor({ color: '#ff0000' });
     }
   });
 
