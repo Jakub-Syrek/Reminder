@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const reminderText = params.get('text') || 'Reminder!';
+
+    alert('⏰ REMINDER\n\n' + reminderText);
+    window.close();
+  </script>
+</body>
+</html>

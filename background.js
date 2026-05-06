@@ -13,20 +13,20 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 });
 
 function showNotification(reminder) {
-  // Otwórz alert window
-  const alertUrl = chrome.runtime.getURL('alert.html?text=' + encodeURIComponent(reminder.text));
+  // Otwórz prosty alert window
+  const alertUrl = chrome.runtime.getURL('alert-simple.html?text=' + encodeURIComponent(reminder.text));
 
   chrome.windows.create({
     url: alertUrl,
     type: 'popup',
-    width: 550,
-    height: 350,
+    width: 400,
+    height: 200,
     focused: true
   }, (window) => {
     if (chrome.runtime.lastError) {
       console.error('Window error:', chrome.runtime.lastError.message);
     } else {
-      console.log('Alert window opened:', window.id);
+      console.log('Alert shown');
     }
   });
 }
