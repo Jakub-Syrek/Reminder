@@ -8,7 +8,38 @@ class PopupController {
     this.reminderManager = new ReminderManager(chrome.storage.sync);
     this.alarmService = new AlarmService(this.reminderManager);
     this.setupEventListeners();
+    this.setDefaultValues();
     this.loadReminders();
+  }
+
+  /**
+   * Set default values for form inputs
+   * Default text: "Alert!"
+   * Default time: 2 minutes from now
+   * @private
+   */
+  setDefaultValues() {
+    const textElement = document.getElementById('reminderText');
+    const dateElement = document.getElementById('reminderDate');
+
+    if (textElement) {
+      textElement.value = 'Alert!';
+    }
+
+    if (dateElement) {
+      // Set to 2 minutes from now
+      const now = new Date();
+      const twoMinutesLater = new Date(now.getTime() + 2 * 60 * 1000);
+
+      // Format: YYYY-MM-DDTHH:mm
+      const year = twoMinutesLater.getFullYear();
+      const month = String(twoMinutesLater.getMonth() + 1).padStart(2, '0');
+      const day = String(twoMinutesLater.getDate()).padStart(2, '0');
+      const hours = String(twoMinutesLater.getHours()).padStart(2, '0');
+      const minutes = String(twoMinutesLater.getMinutes()).padStart(2, '0');
+
+      dateElement.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
   }
 
   /**
