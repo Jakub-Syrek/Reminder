@@ -13,26 +13,21 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 });
 
 function showNotification(reminder) {
-  chrome.notifications.create(`reminder-${reminder.id}`, {
-    type: 'basic',
-    iconUrl: chrome.runtime.getURL('images/icon-128.png'),
-    title: 'Reminder',
-    message: reminder.text,
-    priority: 2,
-    requireInteraction: true
-  }, (notificationId) => {
-    if (chrome.runtime.lastError) {
-      console.error('Notification error:', chrome.runtime.lastError.message);
-    } else {
-      console.log('Notification created:', notificationId);
-      // Fallback: pokaż badge na ikonie
-      chrome.action.setBadgeText({ text: '!' });
-      chrome.action.setBadgeBackgroundColor({ color: '#ff0000' });
-    }
-  });
+  // Otwórz alert window
+  const alertUrl = chrome.runtime.getURL('alert.html?text=' + encodeURIComponent(reminder.text));
 
-  chrome.notifications.getPermissionLevel((level) => {
-    console.log('Permission level:', level);
+  chrome.windows.create({
+    url: alertUrl,
+    type: 'popup',
+    width: 550,
+    height: 350,
+    focused: true
+  }, (window) => {
+    if (chrome.runtime.lastError) {
+      console.error('Window error:', chrome.runtime.lastError.message);
+    } else {
+      console.log('Alert window opened:', window.id);
+    }
   });
 }
 
