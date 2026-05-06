@@ -15,7 +15,6 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 function showNotification(reminder) {
   chrome.notifications.create(`reminder-${reminder.id}`, {
     type: 'basic',
-    iconUrl: '/images/icon-128.png',
     title: 'Reminder',
     message: reminder.text,
     priority: 2
