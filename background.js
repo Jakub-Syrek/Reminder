@@ -13,11 +13,9 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 });
 
 function showNotification(reminder) {
-  const iconUrl = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect fill="%23007bff" width="128" height="128" rx="24"/><text x="64" y="80" font-size="60" font-weight="bold" text-anchor="middle" fill="white">R</text></svg>';
-
   chrome.notifications.create(`reminder-${reminder.id}`, {
     type: 'basic',
-    iconUrl: iconUrl,
+    iconUrl: chrome.runtime.getURL('images/icon-128.png'),
     title: 'Reminder',
     message: reminder.text,
     priority: 2
