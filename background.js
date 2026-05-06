@@ -7,6 +7,10 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 
     if (reminder) {
       showNotification(reminder);
+
+      // Fallback: otwórz popup extension'u
+      chrome.action.openPopup();
+
       deleteReminder(parseInt(reminderId));
     }
   });
