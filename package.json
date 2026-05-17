@@ -1,0 +1,17 @@
+{
+  "name": "reminder-extension",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Chrome MV3 extension for managing reminders with desktop alert windows.",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.8",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.1.8"
+  }
+}
