@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Reminder Extension",
-  "version": "2.0",
+  "version": "2.0.0",
   "description": "Manage reminders with desktop notifications. Built with design patterns and SOLID principles.",
   "permissions": [
     "storage",
